@@ -10,3 +10,10 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.expandtab = true
   end,
 })
+-- Move line up/down in Normal mode
+vim.keymap.set("n", "<C-S-k>", ":m .-2<CR>==", { desc = "Move line up" })
+vim.keymap.set("n", "<C-S-j>", ":m .+1<CR>==", { desc = "Move line down" })
+
+-- Move selected lines up/down in Visual mode
+vim.keymap.set("v", "<C-S-k>", ":m '<-2<CR>gv=gv", { desc = "Move selected lines up" })
+vim.keymap.set("v", "<C-S-j>", ":m '>+1<CR>gv=gv", { desc = "Move selected lines down" })
